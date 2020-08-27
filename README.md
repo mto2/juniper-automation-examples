@@ -50,6 +50,8 @@ The typical bunch of tools for development:
 
 - simply type `make build` in the root directory of this project
 
+![make build](images/make_build.png)
+
 If Docker is installed properly, this will build your very own copy of a Juniper Automation container to use for the project! Amazing!
 
 ### Accessing the examples within the container
