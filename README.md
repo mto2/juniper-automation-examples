@@ -50,13 +50,28 @@ The typical bunch of tools for development:
 
 - simply type `make build` in the root directory of this project
 
+![make build](images/make_build.png)
+
 If Docker is installed properly, this will build your very own copy of a Juniper Automation container to use for the project! Amazing!
 
 ### Accessing the examples within the container
 
-- simply type `make ansible` to start the container with the `examples/ansible` directory mounted
-- simply type `make python` to start the container with the `examples/python` directory mounted
-- rinse and repeat for other projects
+#### Ansible
+
+simply type `make ansible` to start the container with the `examples/ansible` directory mounted
+![make build](images/make_ansible.png)
+
+#### Python
+
+simply type `make python` to start the container with the `examples/python` directory mounted
+![make python](images/make_python.png)
+
+#### Shell
+
+simply type `make shell` to start the container with the `examples/shell` directory mounted
+![make shell](images/make_shell.png)
+
+> rinse and repeat for other projects
 
 ## Development
 
