@@ -8,11 +8,11 @@
 
 ## Project Structure
 
-### ./examples/
+### examples/
 
 A directory created for storing examples of various automation tools, such as python scripts, Ansible playbooks, and the like. If you're just here to download examples, this is the place to start looking.
 
-### ./tools/
+### tools/
 
 This directory holds a collection of tools to help you test the examples. We are providing a Dockerfile to make your experience a little easier to get started with, removing the need to install specific python libraries, or dealing with dedicated development virtual machines.
 
