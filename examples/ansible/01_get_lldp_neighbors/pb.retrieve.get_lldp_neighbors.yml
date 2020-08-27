@@ -1,0 +1,26 @@
+### ---------------------------------------------------------------------------
+### RETRIEVE LLDP NEIGHBORS FROM DEVICE
+### ---------------------------------------------------------------------------
+- hosts: all
+  connection: local
+  gather_facts: False
+  become: False
+  roles: 
+    - juniper.junos
+  vars:
+    provider_info:
+      user: automation
+      passwd: juniper123
+  tasks:
+    - name: "### RETRIEVE LLDP NEIGHBORS WITH NETCONF ###"
+      juniper_junos_rpc:
+        host: "{{ ansible_host }}"
+        user: "{{ provider_info.user }}"
+        passwd: "{{ provider_info.passwd }}"
+        rpc: get-lldp-neighbors-information
+      register: output_lldp_neighbors
+
+    - name: "### PRINT THE RESULT TO CONSOLE ###"
+      debug:
+        msg: "{{ output_lldp_neighbors.parsed_output }}"
+      when: output_lldp_neighbors is defined
