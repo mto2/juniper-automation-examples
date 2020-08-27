@@ -40,6 +40,24 @@ The typical bunch of tools for development:
 - [Docker for macOS](https://docs.docker.com/docker-for-mac/install/)
 - [Make for macOS](https://formulae.brew.sh/formula/make#default)
 
+## How to Use
+
+### Accessing the repository locally
+- [Download this repository](https://github.com/packetferret/juniper-automation-examples/archive/master.zip) to your local machine 
+- Unzip the downloaded archive file and browse to the directory from your terminal of choice
+
+### Build the contianer
+
+- simply type `make build` in the root directory of this project
+
+If Docker is installed properly, this will build your very own copy of a Juniper Automation container to use for the project! Amazing!
+
+### Accessing the examples within the container
+
+- simply type `make ansible` to start the container with the `examples/ansible` directory mounted
+- simply type `make python` to start the container with the `examples/python` directory mounted
+- rinse and repeat for other projects
+
 ## Development
 
 Want to contribute? Great!
