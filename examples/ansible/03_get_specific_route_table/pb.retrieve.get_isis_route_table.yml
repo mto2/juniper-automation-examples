@@ -19,7 +19,7 @@
         passwd: "{{ provider_info.passwd }}"
         rpc: get_route_information
         kwargs:
-          table: bgp.evpn.0
+          table: iso.0
           extensive: True
       register: output_route_table
 
