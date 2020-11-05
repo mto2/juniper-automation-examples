@@ -1,5 +1,23 @@
 ---
 all:
-  hosts:
-    kamino:
-      ansible_host: "10.0.0.0"
+  vars:
+    backup_directory: ./backup/{{ inventory_hostname }}
+    ansible_python_interpreter: "{{ ansible_playbook_python }}"
+  children:
+    leaf:
+      hosts:
+        pod1-leaf1:
+          ansible_host: "192.168.43.203"
+        pod1-leaf2:
+          ansible_host: "192.168.43.204"
+        pod1-leaf3:
+          ansible_host: "192.168.43.205"
+        pod1-leaf4:
+          ansible_host: "192.168.43.206"
+    spine:
+      hosts:
+        pod1-spine1:
+          ansible_host: "192.168.43.201"
+        pod1-spine2:
+          ansible_host: "192.168.43.202"
+

@@ -9,8 +9,10 @@
     - juniper.junos
   vars:
     provider_info:
-      user: automation
-      passwd: juniper123
+      host: "{{ inventory_hostname }}"
+      user: "ansible"
+      passwd: "hol-leap!bru6PSOO"
+      # ssh_private_key_file: "~/.ssh/ansible"
   tasks:
     - name: "### RETRIEVE BGP EVPN ROUTE TABLE WITH NETCONF ###"
       juniper_junos_rpc:
