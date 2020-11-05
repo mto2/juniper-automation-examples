@@ -199,3 +199,4 @@ examples/ansible/03_get_specific_route_table/roles/juniper.junos/tests/junos_jsn
 examples/ansible/03_get_specific_route_table/roles/juniper.junos/tests/junos_jsnapy/test_loopback.yml
 examples/ansible/03_get_specific_route_table/roles/juniper.junos/tests/junos_jsnapy/test_version.yml
 examples/ansible/03_get_specific_route_table/roles/juniper.junos/tools/sw_upgrade
+examples/ansible/04_jsnapy_isis/roles

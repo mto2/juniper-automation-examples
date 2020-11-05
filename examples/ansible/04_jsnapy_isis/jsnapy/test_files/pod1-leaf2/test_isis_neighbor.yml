@@ -1,0 +1,25 @@
+tests_include:
+  - check_isis_spine1
+  - check_isis_spine2
+
+### ---------------------------------------------------------------------------------
+### Ensure All ISIS adjacencies are UP 
+### ---------------------------------------------------------------------------------
+check_isis_spine1:
+  - rpc: get-isis-adjacency-information
+
+  - iterate:
+      xpath: '//isis-adjacency-information/isis-adjacency[normalize-space(interface-name) = "xe-0/0/0.0"]'
+      tests:
+        - is-equal: system-name, pod1-spine1
+          err: ISIS Neighbor {{post['system-name']}} is found on interface xe-0/0/0.0 (pod1-spine1 expected)
+
+check_isis_spine2:
+  - rpc: get-isis-adjacency-information
+
+  - iterate:
+      xpath: '//isis-adjacency-information/isis-adjacency[normalize-space(interface-name) = "xe-0/0/1.0"]'
+      tests:
+        - is-equal: system-name, pod1-spine2
+          err: ISIS Neighbor {{post['system-name']}} is found on interface xe-0/0/1.0 (pod1-spine2 expected)
+
