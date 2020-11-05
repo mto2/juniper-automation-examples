@@ -4,22 +4,18 @@ import requests
 import json
 
 devices = [
-        "10.6.5.201",
-        "10.6.5.202",
-        "10.6.5.203",
-        "10.6.5.204",
-        "10.6.5.205",
-        "10.6.5.206",
-        "10.6.5.207",
-        "10.6.5.208",
-        "10.6.5.209",
-        "10.6.5.210"
+        "192.168.43.201",
+        "192.168.43.202",
+        "192.168.43.203",
+        "192.168.43.204",
+        "192.168.43.205",
+        "192.168.43.206"
     ]
 
 
 list_of_device_output = []
 for device in devices:
-    with Device(host=device, user='automation', password='juniper123') as dev:
+    with Device(host=device, user='ansible', password='hol-leap!bru6PSOO') as dev:
         try:
             show_version = dev.rpc.get_software_information({'format':'json'})
             payload = {'hostname': device, 'payload': show_version}

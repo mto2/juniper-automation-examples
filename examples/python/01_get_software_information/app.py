@@ -3,7 +3,7 @@ from pprint import pprint
 import json
 
 
-with Device(host='10.6.5.201', user='automation', password='juniper123') as dev:
+with Device(host='192.168.43.201', user='ansible', password='hol-leap!bru6PSOO') as dev:
     try:
         show_version = dev.rpc.get_software_information({'format': 'json'})
     except:
