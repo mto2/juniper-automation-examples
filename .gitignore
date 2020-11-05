@@ -3,3 +3,4 @@ examples/ansible/02_get_route_table/roles/juniper.junos
 examples/ansible/03_get_specific_route_table/roles/juniper.junos
 examples/ansible/04_jsnapy_isis/roles/juniper.junos
 examples/ansible/05_jsnapy_ospf/roles/juniper.junos
+examples/ansible/06_jsnapy_bgp/roles/juniper.junos

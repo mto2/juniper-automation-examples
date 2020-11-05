@@ -1,0 +1,22 @@
+tests_include:
+  - check_bgp_spine1
+  - check_bgp_spine2
+
+### ---------------------------------------------------------------------------------
+### Ensure All BGP adjacencies are UP 
+### ---------------------------------------------------------------------------------
+check_bgp_spine1:
+  - rpc: get-bgp-neighbor-information
+
+  - iterate:
+      xpath: '//bgp-information/bgp-peer[normalize-space(description) = "pod1-spine1"]'
+      tests:
+        - is-equal: peer-state, Established
+          err: BGP Neighbor pod1-spine1 {{post['peer-state']}} is not Established (Established expected)
+
+check_bgp_spine2:
+  - iterate:
+      xpath: '//bgp-information/bgp-peer[normalize-space(description) = "pod1-spine2"]'
+      tests:
+        - is-equal: peer-state, Established
+          err: BGP Neighbor pod1-spine2 {{post['peer-state']}} is not Established (Established expected)

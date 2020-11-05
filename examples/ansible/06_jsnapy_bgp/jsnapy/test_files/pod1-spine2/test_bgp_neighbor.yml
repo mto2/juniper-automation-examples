@@ -1,0 +1,40 @@
+tests_include:
+  - check_bgp_leaf1
+  - check_bgp_leaf2
+  - check_bgp_leaf3
+  - check_bgp_leaf4
+
+### ---------------------------------------------------------------------------------
+### Ensure All BGP adjacencies are UP 
+### ---------------------------------------------------------------------------------
+check_bgp_leaf1:
+  - rpc: get-bgp-neighbor-information
+
+  - iterate:
+      xpath: '//bgp-information/bgp-peer[normalize-space(description) = "pod1-leaf1"]'
+      tests:
+        - is-equal: peer-state, Established
+          err: BGP Neighbor pod1-leaf1 {{post['peer-state']}} is not Established (Established expected)
+
+check_bgp_leaf2:
+  - iterate:
+      xpath: '//bgp-information/bgp-peer[normalize-space(description) = "pod1-leaf2"]'
+      tests:
+        - is-equal: peer-state, Established
+          err: BGP Neighbor pod1-leaf2 {{post['peer-state']}} is not Established (Established expected)
+
+check_bgp_leaf3:
+  - rpc: get-bgp-neighbor-information
+
+  - iterate:
+      xpath: '//bgp-information/bgp-peer[normalize-space(description) = "pod1-leaf3"]'
+      tests:
+        - is-equal: peer-state, Established
+          err: BGP Neighbor pod1-leaf3 {{post['peer-state']}} is not Established (Established expected)
+
+check_bgp_leaf4:
+  - iterate:
+      xpath: '//bgp-information/bgp-peer[normalize-space(description) = "pod1-leaf4"]'
+      tests:
+        - is-equal: peer-state, Established
+          err: BGP Neighbor pod1-leaf4 {{post['peer-state']}} is not Established (Established expected)

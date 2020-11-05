@@ -1,0 +1,34 @@
+---
+- name: BGP healthcheck with JSNAPy
+  hosts: all
+  gather_facts: no
+  connection: local
+  vars:
+    provider_info:
+      host: "{{ inventory_hostname }}"
+      user: "ansible"
+      passwd: "hol-leap!bru6PSOO"
+      # ssh_private_key_file: "~/.ssh/ansible"
+  roles:
+    - juniper.junos
+  tasks:
+
+    - name: Check BGP Neighbor Status
+      ignore_errors: true
+      juniper_junos_jsnapy:
+        test_files: jsnapy/test_files/{{ inventory_hostname }}/test_bgp_neighbor.yml
+        action: snapcheck
+        user: "{{ provider_info.user }}"
+        passwd: "{{ provider_info.passwd }}"
+      register: test_bgp
+      tags: [bgp]
+
+    - debug:
+        msg: "{{ test_bgp }}"
+
+    - name: Check Tests results
+      assert:
+        that:
+          - "test_bgp.passPercentage == 100"
+      tags: [bgp]
+
